@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.ListPesanActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_pesan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/pesan_items" />
+    <TextView
+        android:id="@+id/emptyPesan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Pesan Tidak Ada"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+    <include
+        layout="@layout/app_bar_add_pesan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

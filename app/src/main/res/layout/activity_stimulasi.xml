@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.StimulasiActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/ib_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stimulasi Balita"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:layout_marginBottom="10dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorGrey"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/st_Keterangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Balita anda saat ini sudah memasuki usia 3 Bulan, lakukanlah beberapa stimulasi(ransangan) pada balita anda sebagai berikut: "
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:textAlignment="inherit"/>
+        </LinearLayout>
+        <include
+            layout="@layout/stimulasi_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline2" />
+    </LinearLayout>
+</RelativeLayout>

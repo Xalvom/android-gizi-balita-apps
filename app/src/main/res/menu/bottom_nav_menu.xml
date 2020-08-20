@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_balita"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/balita" />
+
+    <item
+        android:id="@+id/navigation_akun"
+        android:icon="@drawable/ic_account_circle_black_24dp"
+        android:title="@string/title_akun" />
+
+</menu>

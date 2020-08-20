@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Gizi Balita</string>
+    <string name="title_home">Home</string>
+    <string name="title_balita">Data Balita</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="balita">Gizi Balita</string>
+    <string name="titleSearch">Data Balita</string>
+    <string name="kelamin">Jenis Kelamin</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bbu_not_found">Status Gizi BB / U Tidak Ada</string>
+    <string name="tbu_not_found">Status Gizi TB / U Tidak Ada</string>
+    <string name="bbtb_not_found">Status Gizi BB / TB Tidak Ada</string>
+
+
+    <!--    Status Gizi-->
+    <string name="bbu">Status BB / U</string>
+    <string name="tbu">Status TB / U</string>
+    <string name="bbtb">Status BB / TB</string>
+    <string name="title_gizi">Gizi Balita Apps</string>
+    <string name="title_akun">Akun</string>
+    <string name="register_caption">Tidak punya Akun? <b>Buat Akun</b></string>
+    <string name="login_caption">Sudah punya akun? <b>Silahkan Login</b></string>
+    <string name="Detail_namaBalita">Himman Husaina</string>
+    <string name="Detail_alamatBalita">Pemalang</string>
+    <string name="Detail_kelaminBalita">Laki-Laki</string>
+    <string name="Detail_deleteBalita">Delete Balita</string>
+    <string name="Detail_editBalita">Detail Edit Balita</string>
+    <string name="namaBalita">{Nama_Balita}</string>
+    <string name="alamatBalita">{Alamat_Balita}</string>
+    <string name="tgllahirBalita">{Tanggal_Lahir_Balita}</string>
+    <string name="kelaminBalita">{Kelamin_Balita}</string>
+    <string name="btKelamin">Jenis Kelamin</string>
+    <string name="titikDua">:</string>
+    <string name="btLahir">Tanggal Lahir</string>
+    <string name="btAlamat">Alamat</string>
+    <string name="btNama">Nama</string>
+    <string name="pilih_balita">Pilih Balita</string>
+
+    <!--    String Data Gizi-->
+    <string name="title_bbu">Tambah Data Gizi BB / U</string>
+    <string name="title_tbu">Tambah Data Gizi TB / U</string>
+    <string name="title_tbbb">Tambah Data Gizi BB / TB</string>
+    <string name="tbuTinggiBadan">Tinggi Badan</string>
+    <string name="AlertTbu">NB: Pengukuran tinggi badan dilakukan dalam keadaan anak berdiri</string>
+
+    <!--    String Data Cek-->
+    <string name="anak2tahun">*Bawa anak 3 Bulan - 2 Tahun setiap 3 bulan ke fasilitas untuk mendapatkan pelayanan SDIDTK </string>
+    <string name="anak6tahun">*Bawa anak 2 Tahun - 6 Tahun setiap 6 bulan ke fasilitas untuk mendapatkan pelayanan SDIDTK </string>
+    <string name="namaOrtu">{Nama_Orang_Tua}</string>
+    <string name="btOrtu">Orang Tua</string>
+    <string name="gTitle">Cek Gizi</string>
+    <string name="tanggal_imun">{Tanggal_Imun}</string>
+    <string name="text_detail_imun">{Text_Detail_Imun}</string>
+    <string name="judul_imun">{Judul_Imun}</string>
+    <string name="title_artikel">Tanda Anak Sehat</string>
+    <string name="tanggal_artikel">26 Maret 2019</string>
+    <string name="author_artikel">Admin Gizi Balita</string>
+    <string name="image_place">image place</string>
+    <string name="cap_author">Penulis</string>
+    <string name="cap_release">Tanggal Terbit</string>
+    <string name="detail_artikel">Berat badan anak sesuai garis pertumbuhan, mengikuti pita hijau di KMS atau naik ke pita warna di atasnya</string>
+    <string name="empty_balita">Data Balita Tidak Ada, Silahkan Tambah Data Balita Dahulu</string>
+    <string name="pbTinggi">{tinggi_badan}</string>
+    <string name="cap_tinggi">Tinggi Badan</string>
+</resources>

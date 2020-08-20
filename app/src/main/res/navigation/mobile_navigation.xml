@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_balita">
+
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_home"-->
+<!--        android:name="com.himman.gizibalita.Fragment.HomeFragment"-->
+<!--        android:label="@string/title_gizi"-->
+<!--        tools:layout="@layout/fragment_home" />-->
+
+    <fragment
+        android:id="@+id/navigation_balita"
+        android:name="com.himman.gizibalita.Fragment.BalitaFragment"
+        android:label="Gizi Balita"
+        tools:layout="@layout/fragment_balita" />
+
+    <fragment
+        android:id="@+id/navigation_akun"
+        android:name="com.himman.gizibalita.Fragment.AkunFragment"
+        android:label="@string/title_akun"
+        tools:layout="@layout/fragment_akun" />
+</navigation>

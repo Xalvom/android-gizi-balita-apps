@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fullBg"
+    tools:context=".Activity.KMSActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kartu Menuju Sehat"
+            android:textStyle="bold"
+            android:background="@color/textWhite"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:id="@+id/idTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kartu Menuju Sehat: untuk laki-laki usia 0 - 24 bulan"
+            android:textStyle="normal"
+            android:textSize="15sp"
+            android:background="@color/textWhite"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"/>
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/cKms"
+            android:background="@color/textWhite"
+            android:layout_width="350dp"
+            android:layout_height="300dp"/>
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:background="@color/textWhite"
+            android:text="umur (bulan)"/>
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:text="Keterangan"
+            android:gravity="left"
+            android:background="@color/textWhite"
+            android:textStyle="bold"
+            android:textColor="@color/colorRed"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvKet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/bbu_items"/>
+    </LinearLayout>
+</RelativeLayout>
