@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/textWhite"
+    android:background="@drawable/shape_rectangle_white"
     android:padding="5dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
@@ -160,7 +160,7 @@
             android:text="Simpan Data"
             android:textAllCaps="false"
             android:textStyle="bold"
-            android:background="#67B60E"
+            android:background="@drawable/shape_rectangle_green"
             android:textColor="#FFF"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="4dp"

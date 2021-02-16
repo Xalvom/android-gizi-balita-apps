@@ -2,11 +2,15 @@ package com.himman.gizibalita.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +34,9 @@ public class RegisterActivity extends AppCompatActivity {
     private Button btnSignup;
     private ApiInterface service;
     private SharedPrefManager sharedPrefManager;
+    private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    private Toast toast;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
         mPassword = findViewById(R.id.rgPassword);
         btnSignup = findViewById(R.id.btnSignup);
         sharedPrefManager = new SharedPrefManager(this);
+        progressBar = findViewById(R.id.progressBar);
 
         //Cek apakah user sudah pernah login apa belum
         if (sharedPrefManager.getSPSudahLogin()){
@@ -55,23 +63,24 @@ public class RegisterActivity extends AppCompatActivity {
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                showLoading(true);
                 String namaUser = mNama.getEditText().getText().toString().trim();
-                String noHp = mEmail.getEditText().getText().toString().trim();
+                String emailUser = mEmail.getEditText().getText().toString().trim();
                 String passwordUser = mPassword.getEditText().getText().toString().trim();
                 String levelUser = "2";
                 String isAktif = "1";
-                String emailUser = "-";
+                String noHp = "-";
 
-                if(noHp.isEmpty() | passwordUser.isEmpty() | namaUser.isEmpty()){
-                    mEmail.setError("No Hp tidak Boleh Kosong");
+                if(emailUser.isEmpty() | passwordUser.isEmpty() | namaUser.isEmpty()){
+                    mEmail.setError("Email tidak Boleh Kosong");
                     mPassword.setError("Password Tidak Boleh Kosong");
                     mNama.setError("Nama Lengkap Tidak Boleh Kosong");
                     mEmail.requestFocus();
                     mPassword.requestFocus();
                     mNama.requestFocus();
                     return;
-                } else if(noHp.length() < 12 && noHp.length() >13) {
-                    mEmail.setError("No Hp tidak Valid");
+                }else if(!emailUser.matches(emailPattern)){
+                    mEmail.setError("Email Tidak Valid");
                     mEmail.requestFocus();
                     return;
                 }else if(passwordUser.length() < 6) {
@@ -88,7 +97,8 @@ public class RegisterActivity extends AppCompatActivity {
         loginLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(RegisterActivity.this, "Login Akun", Toast.LENGTH_SHORT).show();
+                showLoading(true);
+                Toast.makeText(RegisterActivity.this, "Login Akun Gizi Balita", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(i);
                 finish();
@@ -104,13 +114,22 @@ public class RegisterActivity extends AppCompatActivity {
             call.enqueue(new Callback<UserResponse>() {
                 @Override
                 public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                    showLoading(false);
                     if(response.isSuccessful()){
                         mNama.getEditText().setText(null);
                         mEmail.getEditText().setText(null);
                         mPassword.getEditText().setText(null);
-                        Toast.makeText(RegisterActivity.this, "Akun Gizi Balita berhasil di buat,\nSilahkan login ke aplikasi", Toast.LENGTH_SHORT).show();
+                        toast = Toast.makeText(getApplicationContext(), "Akun Gizi Balita berhasil di buat,\nSilahkan Cek Email Anda"+nama, Toast.LENGTH_SHORT);
+                        toast.show();
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                toast.cancel();
+                            }
+                        }, 10000);
                     }else{
-                        Toast.makeText(RegisterActivity.this, "Daftar gagal, periksa no hp anda pakah sudah dipakai apa belum", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Daftar Gagal", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -121,6 +140,14 @@ public class RegisterActivity extends AppCompatActivity {
             });
         }catch (Exception e){
             e.printStackTrace();
+        }
+    }
+
+    private void showLoading(Boolean state){
+        if (state) {
+            progressBar.setVisibility(View.VISIBLE);
+        } else {
+            progressBar.setVisibility(View.INVISIBLE);
         }
     }
 }

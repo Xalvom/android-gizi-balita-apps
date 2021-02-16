@@ -101,11 +101,11 @@ public interface ApiInterface {
                                      @Field("update_bbtb") String updateBbtu);
 
     @GET("user/loginApp")
-    Call<UserResponse> apiLogin(@Query("no_hp_user") String noHpUser,
+    Call<UserResponse> apiLogin(@Query("email_user") String emailUser,
                                 @Query("password_user") String passwordUser);
 
     @FormUrlEncoded
-    @POST("user/daftar")
+    @POST("user")
     Call<UserResponse> apiRegister(@Field("nama_user") String namaUser,
                                    @Field("no_hp_user") String noHpUser,
                                    @Field("email_user") String emailUser,

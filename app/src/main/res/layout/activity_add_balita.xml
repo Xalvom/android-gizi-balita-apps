@@ -328,7 +328,7 @@
             android:text="Tambah Data Balita"
             android:textAllCaps="false"
             android:textStyle="bold"
-            android:background="#67B60E"
+            android:background="@drawable/shape_rectangle_green"
             android:textColor="#FFF"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="4dp"

@@ -63,7 +63,7 @@ public class AkunFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setMessage("Apakah Anda Yakin Ingin Logout?");
+                builder.setMessage("Apakah anda ingin keluar akun?");
                 builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

@@ -97,7 +97,7 @@ public class EditAkunActivity extends AppCompatActivity {
                         List<User> list = response.body().getMData();
                         for (int i = 0; i < list.size(); i++) {
                             namaUser.setText(list.get(i).getNamaUser());
-                            emailUser.setText(list.get(i).getNoHpUser());
+                            emailUser.setText(list.get(i).getEmailUser());
                             statusUser.setText(statusU(list.get(i).getIsAktif()));
                             katUser.setText(KatU(list.get(i).getLevelUser()));
                         }

@@ -8,6 +8,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,9 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin;
     private ApiInterface service;
     private SharedPrefManager sharedPrefManager;
+    private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         registerLink = findViewById(R.id.register_caption);
         btnLogin = findViewById(R.id.btnLogin);
         sharedPrefManager = new SharedPrefManager(this);
+        progressBar = findViewById(R.id.progressBar);
         if (sharedPrefManager.getSPSudahLogin()){
             startActivity(new Intent(LoginActivity.this, MainActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
@@ -55,19 +60,20 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                showLoading(true);
                 String email = mEmail.getEditText().getText().toString().trim();
                 String password = mPassword.getEditText().getText().toString().trim();
 
                 if(email.isEmpty() | password.isEmpty()){
-                    mEmail.setError("No Hp Tidak Boleh Kosong");
+                    mEmail.setError("Email Tidak Boleh Kosong");
                     mPassword.setError("Password Tidak Boleh Kosong");
                     mEmail.requestFocus();
                     return;
-                } else if(email.length() <= 12 && email.length() >= 13){
-                    mEmail.setError("No Hp Tidak Valid");
+                } else if(!email.matches(emailPattern)){
+                   mEmail.setError("Email Tidak Valid");
                     mEmail.requestFocus();
-                    return;
-                } else{
+                   return;
+                } else {
                     userLogin(email, password);
                 }
             }
@@ -75,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
         registerLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(LoginActivity.this, "Buat Akun", Toast.LENGTH_SHORT).show();
+                showLoading(true);
                 Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(i);
                 finish();
@@ -91,17 +97,18 @@ public class LoginActivity extends AppCompatActivity {
             call.enqueue(new Callback<UserResponse>() {
                 @Override
                 public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                    showLoading(false);
                     UserResponse userResponse = response.body();
                     if(response.isSuccessful()){
                         List<User> listUser;
                         listUser = response.body().getMData();
                         for (int i = 0; i < listUser.size(); i++) {
                             String idUser = listUser.get(i).getIdUser();
-                            String noHpUser = listUser.get(i).getNoHpUser();
+                            String emailUser = listUser.get(i).getEmailUser();
                             String namaUser = listUser.get(i).getNamaUser();
                             sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, namaUser);
                             sharedPrefManager.saveSPString(SharedPrefManager.SP_IDUSER, idUser);
-                            sharedPrefManager.saveSPString(SharedPrefManager.SP_EMAIL, noHpUser);
+                            sharedPrefManager.saveSPString(SharedPrefManager.SP_EMAIL, emailUser);
                         }
                         sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
                         startActivity(new Intent(LoginActivity.this, MainActivity.class)
@@ -115,11 +122,18 @@ public class LoginActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<UserResponse> call, Throwable t) {
-
+                    Toast.makeText(LoginActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }catch (Exception e){
             e.printStackTrace();
+        }
+    }
+    private void showLoading(Boolean state){
+        if (state) {
+            progressBar.setVisibility(View.VISIBLE);
+        } else {
+            progressBar.setVisibility(View.INVISIBLE);
         }
     }
 }

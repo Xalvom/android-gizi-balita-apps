@@ -90,18 +90,18 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ArtikelV
         public ArtikelViewHolder(@NonNull View itemView) {
             super(itemView);
             jArtikel = itemView.findViewById(R.id.it_title);
-            iArtikel = itemView.findViewById(R.id.it_overview);
+//            iArtikel = itemView.findViewById(R.id.it_overview);
             tArtikel = itemView.findViewById(R.id.it_years);
-            aArtikel = itemView.findViewById(R.id.it_author);
+//            aArtikel = itemView.findViewById(R.id.it_author);
             iPoster = itemView.findViewById(R.id.it_poster);
         }
         @SuppressLint("ResourceAsColor")
         void bind(final Artikel artikel){
             iPoster.setBackgroundColor(getColor());
             jArtikel.setText(artikel.getJudulArtikel());
-            iArtikel.setText(Html.fromHtml(artikel.getIsiArtikel()));
+//            iArtikel.setText(Html.fromHtml(artikel.getIsiArtikel()));
             tArtikel.setText(yearsFormat(artikel.getCreatedAt()));
-            aArtikel.setText(artikel.getNamaUser());
+//            aArtikel.setText(artikel.getNamaUser());
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

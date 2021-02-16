@@ -39,7 +39,7 @@ public class GiziBalitaActivity extends AppCompatActivity {
         CardGov = findViewById(R.id.sh_perkembangan);
         CardGizi = findViewById(R.id.sh_gizi);
         CardImun = findViewById(R.id.sh_imunisasi);
-        CardArtikel = findViewById(R.id.sh_artikel);
+//        CardArtikel = findViewById(R.id.sh_artikel);
         CardDetail = findViewById(R.id.sh_detail);
         CardKMS = findViewById(R.id.sh_kms);
         CardStimulasi = findViewById(R.id.sh_stimulasi);
@@ -88,13 +88,13 @@ public class GiziBalitaActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        CardArtikel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), ArtikelActivity.class);
-                startActivity(i);
-            }
-        });
+//        CardArtikel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(getApplicationContext(), ArtikelActivity.class);
+//                startActivity(i);
+//            }
+//        });
         CardDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

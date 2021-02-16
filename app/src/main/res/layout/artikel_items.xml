@@ -1,63 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="110dp"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:layout_marginStart="2dp"
+    android:layout_marginEnd="2dp"
+    android:padding="4dp">
 
     <ImageView
         android:id="@+id/it_poster"
-        android:layout_width="80dp"
-        android:layout_height="120dp"
-        android:background="@color/colorBlack"
-        android:src="@drawable/gambar_artikel"/>
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/shape_rectangle_white"
+        android:src="@drawable/gambar_artikel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/it_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_toEndOf="@id/it_poster"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:maxLines="2"
         android:text="@string/title_artikel"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:maxLines="1"
-        android:layout_marginBottom="2dp"
-        android:ellipsize="end"/>
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/it_poster" />
 
     <TextView
         android:id="@+id/it_years"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_toEndOf="@id/it_poster"
-        android:layout_below="@id/it_title"
-        android:textAlignment="center"
-        android:layout_marginBottom="2dp"
-        android:text="@string/tanggal_artikel"/>
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/tanggal_artikel"
+        android:textSize="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/it_title" />
+<!--    <ImageView-->
+<!--        android:id="@+id/it_poster"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="120dp"-->
+<!--        android:background="@color/colorBlack"-->
+<!--        android:src="@drawable/gambar_artikel"/>-->
 
-    <TextView
-        android:id="@+id/it_author"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_toEndOf="@id/it_poster"
-        android:layout_below="@id/it_years"
-        android:textAlignment="center"
-        android:text="@string/author_artikel"/>
+<!--    <TextView-->
+<!--        android:id="@+id/it_title"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="26dp"-->
+<!--        android:layout_toEndOf="@id/it_poster"-->
+<!--        android:text="@string/title_artikel"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:maxLines="1"-->
+<!--        android:layout_marginBottom="2dp"-->
+<!--        android:ellipsize="end"/>-->
 
-    <TextView
-        android:id="@+id/it_overview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/it_poster"
-        android:layout_below="@+id/it_author"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="5dp"
-        android:ellipsize="end"
-        android:maxLines="3"
-        android:text="@string/detail_artikel" />
+<!--    <TextView-->
+<!--        android:id="@+id/it_years"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="26dp"-->
+<!--        android:layout_toEndOf="@id/it_poster"-->
+<!--        android:layout_below="@id/it_title"-->
+<!--        android:textAlignment="center"-->
+<!--        android:layout_marginBottom="2dp"-->
+<!--        android:text="@string/tanggal_artikel"/>-->
 
-</RelativeLayout>
+<!--    <TextView-->
+<!--        android:id="@+id/it_author"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="26dp"-->
+<!--        android:layout_toEndOf="@id/it_poster"-->
+<!--        android:layout_below="@id/it_years"-->
+<!--        android:textAlignment="center"-->
+<!--        android:text="@string/author_artikel"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/it_overview"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_toEndOf="@+id/it_poster"-->
+<!--        android:layout_below="@+id/it_author"-->
+<!--        android:layout_marginStart="26dp"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:ellipsize="end"-->
+<!--        android:maxLines="3"-->
+<!--        android:text="@string/detail_artikel" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

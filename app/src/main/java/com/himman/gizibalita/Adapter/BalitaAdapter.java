@@ -4,11 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.himman.gizibalita.Activity.BalitaActivity;
@@ -66,6 +68,7 @@ public class BalitaAdapter extends RecyclerView.Adapter<BalitaAdapter.BalitaView
         TextView tvAlamatBalita;
         TextView tvTglBalita;
         TextView tvKelaminBalita;
+        ImageView ivBalita;
 
         public BalitaViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,6 +82,15 @@ public class BalitaAdapter extends RecyclerView.Adapter<BalitaAdapter.BalitaView
             tvAlamatBalita.setText("RT: " + balita.getRtBalita() + ", RW: " + balita.getRwBalita() + ", Dusun: " + balita.getAlamatBalita());
             tvTglBalita.setText(yearsFormat(balita.getTgllahirBalita()));
             tvKelaminBalita.setText(kelamin(balita.getKelaminBalita()));
+//            if(balita.getKelaminBalita().equals("L")){
+//                Glide.with(context)
+//                        .load(R.drawable.ic_boy)
+//                        .into(ivBalita);
+//                }else{
+//                    Glide.with(context)
+//                            .load(R.drawable.ic_girl)
+//                            .into(ivBalita);
+//                }
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -113,5 +125,5 @@ public class BalitaAdapter extends RecyclerView.Adapter<BalitaAdapter.BalitaView
         }
         return changeKelamin;
     }
-
 }
+
